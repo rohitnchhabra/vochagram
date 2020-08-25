@@ -10,11 +10,13 @@ export function* menuRequest(action) {
       '/home/categories',
       ""
     );
-
+      console.log(response.data.data);
+      
     if (response) {
       yield put(actions.menuSuccess(response.data.data));
     }
   } catch (e) {
+    console.log(e);
     yield put(actions.menuError());
   }
 }

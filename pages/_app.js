@@ -3,6 +3,7 @@ import App, { Container } from "next/app";
 import "../styles/styles.css";
 import "../styles/footer-style.css";
 import "../styles/globals.css";
+import "react-owl-carousel2/lib/styles.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { Provider } from "react-redux";
 import { store, wrapper } from "../redux/store";

@@ -9,6 +9,8 @@ const initialState = {
 };
 
 const menu = (state = initialState, action) => {
+  console.log(action, "action");
+
   switch (action.type) {
     case HYDRATE:
       return action.payload.menu;
@@ -26,7 +28,17 @@ const menu = (state = initialState, action) => {
         isLoading: false,
         isError: false,
         isSuccess: true,
-        data: action.payload,
+        data: action.payload.map((v, i) => {
+          const subMenu = v.brands_name.split(",");
+          const subMenuLinks = v.brands_slug.split(",");
+          return {
+            name: v.name,
+            iconURL: v.icon_url,
+            subMenu,
+            subMenuLinks,
+            slug: v.slug,
+          };
+        }),
       };
     case constants.MENU_ERROR:
       return {

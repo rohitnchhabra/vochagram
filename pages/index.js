@@ -1,9 +1,57 @@
+import React from "react";
 import { useEffect } from "react";
-import Head from "next/head";
-import { menuRequest } from "../redux/actions";
-import { connect } from "react-redux";
 import Link from "next/link";
+import image1 from "../static/images/tranding-brand/1.jpg";
+import image2 from "../static/images/tranding-brand/2.jpg";
+import image3 from "../static/images/tranding-brand/3.jpg";
+import image4 from "../static/images/tranding-brand/4.jpg";
+import image5 from "../static/images/tranding-brand/5.jpg";
+import image6 from "../static/images/tranding-brand/6.jpg";
+import image7 from "../static/images/tranding-brand/7.jpg";
+import image1png from "../static/images/tranding-brand/1.png";
+import image2png from "../static/images/tranding-brand/2.png";
+import image3png from "../static/images/tranding-brand/3.png";
+import image4png from "../static/images/tranding-brand/4.png";
+import image5png from "../static/images/tranding-brand/5.png";
+import image6png from "../static/images/tranding-brand/6.png";
+import Carousel from "../components/Carousel";
 function Home() {
+  const images = [
+    { main: image1, sub: image1png },
+    { main: image2, sub: image2png },
+    { main: image3, sub: image3png },
+    { main: image4, sub: image4png },
+    { main: image5, sub: image5png },
+    { main: image6, sub: image6png },
+    { main: image7, sub: image1png },
+  ];
+  const options = {
+    loop: true,
+    nav: false,
+    dots: false,
+    margin: 15,
+    smartSpeed: 1000,
+    responsive: {
+      0: {
+        items: 2,
+      },
+      480: {
+        items: 3,
+      },
+      600: {
+        items: 3,
+      },
+      768: {
+        items: 6,
+      },
+      992: {
+        items: 6,
+      },
+      1200: {
+        items: 6,
+      },
+    },
+  };
   return (
     <>
       <a class="cartBtn">
@@ -68,410 +116,6 @@ function Home() {
             </div>
           </header>
 
-          <section class="row">
-            <div class="col-12 p-0">
-              <div
-                id="carouselHome"
-                class="carousel slide"
-                data-ride="carousel"
-              >
-                <div class="carousel-inner">
-                  <div class="carousel-item active carousel-item-left">
-                    <img
-                      class="w-100 d-none d-md-block"
-                      src="../static/images/banner.jpg"
-                      alt="First slide"
-                    />
-                    <img
-                      class="w-100 d-block d-md-none "
-                      src="../static/images/mobile-banner.jpg"
-                      alt="First slide"
-                    />
-                  </div>
-                  <div class="carousel-item carousel-item-next carousel-item-left">
-                    <img
-                      class="w-100 d-none d-md-block"
-                      src="../static/images/banner.jpg"
-                      alt="First slide"
-                    />
-                    <img
-                      class="w-100 d-block d-md-none"
-                      src="../static/images/mobile-banner.jpg"
-                      alt="First slide"
-                    />
-                  </div>
-                </div>
-
-                <a
-                  class="carousel-control-prev"
-                  role="button"
-                  data-slide="prev"
-                >
-                  <span
-                    class="carousel-control-prev-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a
-                  class="carousel-control-next"
-                  role="button"
-                  data-slide="next"
-                >
-                  <span
-                    class="carousel-control-next-icon"
-                    aria-hidden="true"
-                  ></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-          </section>
-
-          <section class="row py-2">
-            <div class="col-12 p-0">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12 col-md-3 p-3 pr-md-0">
-                    <div class="p-3 shadow-sm border rounded">
-                      <div>
-                        <h3 class="h4 fw-700 text-uppercase m-0">
-                          Deal of the day
-                        </h3>
-                        <p class="fs-12 mb-2">
-                          Amazing Deals from choicest brands!
-                        </p>
-                      </div>
-                      <div class="shadow-sm mb-3">
-                        <a>
-                          <img
-                            src="../static/images/deals.jpg"
-                            alt="deals"
-                            class="w-100"
-                          />
-                        </a>
-                      </div>
-                      <div class="text-right">
-                        <a class="btn btn-sm btn-danger btn-block rounded-0 fs-14 pb-1">
-                          VIEW MORE
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-6 p-3">
-                    <div class="p-3 shadow-sm border rounded">
-                      <div>
-                        <h3 class="h4 fw-700 text-uppercase m-0">Offers</h3>
-                        <p class="fs-14 mb-2">
-                          Top discounts & deals on leading brands!
-                        </p>
-                      </div>
-                      <div class="shadow-sm mb-3">
-                        <a>
-                          <img
-                            src="../static/images/offers-1.jpg"
-                            alt="offers-1"
-                            class="w-100"
-                          />
-                        </a>
-                      </div>
-                      <div class="shadow-sm mb-3">
-                        <a>
-                          <img
-                            src="../static/images/offers-2.jpg"
-                            alt="offers-1"
-                            class="w-100"
-                          />
-                        </a>
-                      </div>
-                      <div class="text-right">
-                        <a class="btn btn-sm btn-danger btn-block rounded-0 fs-14 pb-1">
-                          VIEW MORE
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-12 col-md-3 p-3 pl-md-0">
-                    <div class="p-3 shadow-sm border rounded">
-                      <div>
-                        <h3 class="h4 fw-700 text-uppercase m-0">discounts</h3>
-                        <p class="fs-12 mb-2">
-                          Buy fast moving brands just for you
-                        </p>
-                      </div>
-                      <div class="shadow-sm mb-3">
-                        <a>
-                          <img
-                            src="../static/images/discount.jpg"
-                            alt="dicount"
-                            class="w-100"
-                          />
-                        </a>
-                      </div>
-                      <div class="text-right">
-                        <a class="btn btn-sm btn-danger btn-block rounded-0 fs-14 pb-1">
-                          View More
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="row py-3 py-md-4">
-            <div class="col-12 p-0">
-              <div class="container">
-                <div class="row">
-                  <div class="col-12">
-                    <h3 class="h4 fw-700 text-uppercase">TRENDING CATEGORY</h3>
-                  </div>
-
-                  <div class="col-12 px-4">
-                    <div class="row">
-                      <div class="col-6 col-md-3 p-2">
-                        <div class="productList border rounded-top">
-                          <img
-                            src="../static/images/1.jpg"
-                            alt="product image"
-                            class="w-100 rounded-top"
-                          />
-                          <div class="pr-det text-center">
-                            <div class="logoBox">
-                              <img src="../static/images/logos/7.png" />
-                            </div>
-                            <div class="text-danger text-uppercase fw-700 py-2">
-                              Save Upto 10%
-                            </div>
-                            <a class="btn btn-danger btn-block fs-14 py-1 rounded-0">
-                              SHOP NOW
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-6 col-md-3 p-2">
-                        <div class="productList border rounded-top">
-                          <img
-                            src="../static/images/2.jpg"
-                            alt="product image"
-                            class="w-100 rounded-top"
-                          />
-                          <div class="pr-det text-center">
-                            <div class="logoBox">
-                              <img src="../static/images/logos/8.png" />
-                            </div>
-                            <div class="text-danger text-uppercase fw-700 py-2">
-                              Save Upto 10%
-                            </div>
-                            <a class="btn btn-danger btn-block fs-14 py-1 rounded-0">
-                              SHOP NOW
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-6 col-md-3 p-2">
-                        <div class="productList border rounded-top">
-                          <img
-                            src="../static/images/3.jpg"
-                            alt="product image"
-                            class="w-100 rounded-top"
-                          />
-                          <div class="pr-det text-center">
-                            <div class="logoBox">
-                              <img src="../static/images/logos/9.png" />
-                            </div>
-                            <div class="text-danger text-uppercase fw-700 py-2">
-                              Save Upto 10%
-                            </div>
-                            <a class="btn btn-danger btn-block fs-14 py-1 rounded-0">
-                              SHOP NOW
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-6 col-md-3 p-2">
-                        <div class="productList border rounded-top">
-                          <img
-                            src="../static/images/4.jpg"
-                            alt="product image"
-                            class="w-100 rounded-top"
-                          />
-                          <div class="pr-det text-center">
-                            <div class="logoBox">
-                              <img src="../static/images/logos/10.png" />
-                            </div>
-                            <div class="text-danger text-uppercase fw-700 py-2">
-                              Save Upto 10%
-                            </div>
-                            <a class="btn btn-danger btn-block fs-14 py-1 rounded-0">
-                              SHOP NOW
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="row DiscountsOffersRecent">
-            <div class="container">
-              <div class="row">
-                <div class="col-12 col-md-4 py-3 py-md-4">
-                  <h3 class="fs-16 fw-400 border-bottom pb-2 text-uppercase">
-                    Best Discounts
-                  </h3>
-                  <div class="Discounts-owl-carousel owl-carousel">
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/1.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/2.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/3.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/4.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/5.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/6.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/7.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/8.png" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-4 py-3 py-md-4">
-                  <h3 class="fs-16 fw-400 border-bottom pb-2 text-uppercase">
-                    Best Offers
-                  </h3>
-                  <div class="Offers-owl-carousel owl-carousel">
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/9.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/10.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/1.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/2.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/3.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/4.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/5.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/6.png" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-12 col-md-4 py-3 py-md-4">
-                  <h3 class="fs-16 fw-400 border-bottom pb-2 text-uppercase">
-                    YOUR FAVOURITE
-                  </h3>
-                  <div class="Recent-owl-carousel owl-carousel">
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/7.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/8.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/9.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/10.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/1.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/2.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/3.png" />
-                      </div>
-                    </div>
-                    <div class="item">
-                      <div class="border">
-                        <img src="../static/images/logos/4.png" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           <section class="row TrendingBrands py-3 py-md-4">
             <div class="container">
               <div class="row">
@@ -481,112 +125,27 @@ function Home() {
                   </h3>
                 </div>
                 <div class="col-12">
-                  <div class="TrendingBrands-owl-carousel owl-carousel">
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/1.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/1.png" />
+                  <Carousel
+                    className="TrendingBrands-owl-carousel owl-carousel"
+                    options={options}
+                  >
+                    {images.map((image, i) => (
+                      <div class="item" key={i}>
+                        <div class="productList border rounded p-0">
+                          <img
+                            src={image.main}
+                            alt="product image"
+                            class="w-100 rounded"
+                          />
+                          <div class="pr-det text-center">
+                            <div class="logoBox">
+                              <img src={image.sub} />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/2.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/2.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/3.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/3.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/4.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/5.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/5.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/4.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/6.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/6.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="item">
-                      <div class="productList border rounded p-0">
-                        <img
-                          src="../static/images/tranding-brand/7.jpg"
-                          alt="product image"
-                          class="w-100 rounded"
-                        />
-                        <div class="pr-det text-center">
-                          <div class="logoBox">
-                            <img src="../static/images/tranding-brand/1.png" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                    ))}
+                  </Carousel>
                 </div>
               </div>
             </div>
