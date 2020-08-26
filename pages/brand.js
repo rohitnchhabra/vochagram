@@ -6,11 +6,10 @@ import Router from "next/router";
 const websiteURL = "https://www.gyftr.com/hdfcsmartbuy/";
 function brand({ menu }) {
   useEffect(() => {
-    // if (!menu.data.length) {
-    //   Router.push("/");
-    // }
+    if (!menu.data.length) {
+      Router.push("/");
+    }
   }, [menu.isSuccess]);
-  console.log(menu, "aaaaaaaaaaa");
 
   return (
     <>
